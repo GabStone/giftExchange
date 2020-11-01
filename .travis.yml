@@ -8,3 +8,12 @@ before_install:
 
 script:
   - docker run -e CI=true gabstone/client-gift-exchange-test npm test
+
+after_success:
+  - docker build -t gabstone/client-gift-exchange ./client-gift-exchange
+  - docker build -t gabstone/nginx-gift-exchange ./nginx
+  - docker build -t gabstone/server-gift-exchange ./server
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push gabstone/client-gift-exchange
+  - docker push gabstone/nginx-gift-exchange
+  - docker push gabstone/server-gift-exchange
