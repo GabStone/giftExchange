@@ -1,0 +1,40 @@
+version: '3'
+services:
+
+  # Client Gift Exchange Service
+  client:
+    stdin_open: true
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client-gift-exchange
+    volumes:
+      - /app/node_modules
+      - ./client-gift-exchange:/app
+
+  # Server Service
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+
+    # Environment Variables
+    environment:
+      - EMAIL_ADDRESSS=
+      - EMAIL_USER=
+      - EMAIL_PASSWORD=
+
+  # Nginx Service
+  nginx:
+    depends_on:
+      - api
+      - client
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '3050:80'
+
