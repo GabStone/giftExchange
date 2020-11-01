@@ -1,10 +1,10 @@
+language: generic
 sudo: required
-
 services:
   - docker
 
 before_install:
-  - docker build -t gabstone/gift-exchange-client-test -f ./client-gift-exchange/Dockerfile.dev ./client-gift-exchange
+  - docker build -t gabstone/client-gift-exchange-test -f ./client-gift-exchange/Dockerfile.dev ./client-gift-exchange
 
 script:
-  - docker run -e CI=true gabstone/gift-exchange-client-test npm test
+  - docker run -e CI=true gabstone/client-gift-exchange-test npm test
