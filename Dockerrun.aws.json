@@ -1,0 +1,32 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client-gift-exchange",
+            "image": "gabstone/client-gift-exchange",
+            "hostname": "client",
+            "essential": false,
+            "memory": 128
+        },
+        {
+            "name": "server-gift-exchange",
+            "image": "gabstone/server-gift-exchange",
+            "hostname": "api",
+            "essential": false,
+            "memory": 128
+        },
+        {
+            "name": "nginx-gift-exchange",
+            "image": "gabstone/nginx-gift-exchange",
+            "hostname": "nginx",
+            "essential": true, 
+            "portMappings":[
+                { "hostPort": 80,
+                  "containerPort": 80
+                }
+            ],
+            "links": ["client", "server"],
+            "memory": 128
+        }
+    ]
+}
