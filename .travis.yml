@@ -17,3 +17,15 @@ after_success:
   - docker push gabstone/client-gift-exchange
   - docker push gabstone/nginx-gift-exchange
   - docker push gabstone/server-gift-exchange
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "gift-exchange"
+  env: "GiftExchange-env"
+  bucket_name: "elasticbeanstalk-us-east-1-837062711494"
+  bucket_path: "gift-exchange"
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
