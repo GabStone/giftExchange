@@ -3,10 +3,10 @@
  */
 const APPLICATION_DATA = {
   AppVersion: '0.0.1',
-  Localhost: true,
+  Localhost: false,
   DefaultTimeout: 10000,
   ProductionServer: {
-    Server: ''
+    Server: '/api'
   },
   StagingServer: {
     Server: 'http://localhost:3050/api/'
