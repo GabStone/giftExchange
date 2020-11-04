@@ -31,13 +31,11 @@ async function sendEmail(assignments) {
         };
 
         let result = await transporter.sendMail(mailOptions);
-
-        console.log(result);
+        
         if (result.accepted.length !== 1 || result.rejected.length !== 0) {
             success = false;
             break;
         }
-        break;
     }
 
     return success;

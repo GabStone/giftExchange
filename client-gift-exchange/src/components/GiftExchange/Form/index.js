@@ -101,7 +101,7 @@ const Account = () => {
         }
 
         setLoading(true);
-        post('exchange/', data.recipients).then((res) => {
+        post('/api/exchange', data.recipients).then((res) => {
             setLoading(false);
             if (res.data.status === 0 && res.data.result === 'Success') {
                 setSnackbarData({open: true, result: 'success', text: 'Success! All participants should receive an email in the next few minutes'});

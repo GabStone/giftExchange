@@ -43,8 +43,6 @@ function getServerPath() {
   let path = '';
   if (APPLICATION_DATA.Localhost) {
     path = APPLICATION_DATA.StagingServer.Server;
-  } else {
-    path = APPLICATION_DATA.ProductionServer.Server;
   }
   return path;
 }
