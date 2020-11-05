@@ -17,8 +17,11 @@ const createAxiosInstance = (
 };
 
 export const post = async (route, params) => {
+  console.log(route);
   let path = getServerPath();
+  console.log(path);
   path += route;
+  console.log(path);
   const instance = createAxiosInstance(path, params, post);
 
   return instance.post(path, params).catch((error) => {
