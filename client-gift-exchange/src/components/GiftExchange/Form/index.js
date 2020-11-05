@@ -84,6 +84,8 @@ const Account = () => {
     }
 
     const sendEmail = () => {
+        setError({...error, error:false});
+
         // Validation
         if (data.recipients.length < 4) {
             setError({error: true, errorText: 'Error - Minimum 4 participants are needed for a secret gift exchange'});
@@ -105,6 +107,30 @@ const Account = () => {
             setLoading(false);
             if (res.data.status === 0 && res.data.result === 'Success') {
                 setSnackbarData({open: true, result: 'success', text: 'Success! All participants should receive an email in the next few minutes'});
+                setData({
+                    recipients: [
+                        {
+                            id: 1,
+                            name: '',
+                            email: ''
+                        },
+                        {
+                            id: 2,
+                            name: '',
+                            email: ''
+                        },
+                        {
+                            id: 3,
+                            name: '',
+                            email: ''
+                        },
+                        {
+                            id: 4,
+                            name: '',
+                            email: ''
+                        }
+                    ]
+                });
             } else {
                 setSnackbarData({open: true, result: 'error', text: 'Error! Please try again later'});
             }
