@@ -6,7 +6,7 @@ import {
     Grid, makeStyles
 } from '@material-ui/core';
 import Recipient from "../Recipient";
-import { post } from '../../../server/server.service';
+import axios from 'axios';
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { v4 as uuidv4 } from 'uuid';
@@ -101,7 +101,7 @@ const Account = () => {
         }
 
         setLoading(true);
-        post('/api/exchange', data.recipients).then((res) => {
+        axios.post('/api/exchange', data.recipients).then((res) => {
             setLoading(false);
             if (res.data.status === 0 && res.data.result === 'Success') {
                 setSnackbarData({open: true, result: 'success', text: 'Success! All participants should receive an email in the next few minutes'});
