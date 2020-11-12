@@ -13,6 +13,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/ping/', (req, res) => {
+    res.send('pong');
+})
+
 app.post('/exchange', async (req, res) => {
 
     // Participant Object
