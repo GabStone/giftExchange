@@ -20,7 +20,7 @@ containing the name of another recipient they must buy a gift for.
 ### Running the Server:
 - `docker-compose up --build`
 - Navigate to `http://localhost:3050/`
-- API calls can be directly made too 
+- API calls can be directly made too `http://localhost:3050/api/`
 
 ## Application Structure
 - `/client-gift-exchange` React Client
