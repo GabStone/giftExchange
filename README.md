@@ -1,5 +1,6 @@
 # Gift Exchange
 Gift Exchange
+[![Build Status](https://app.travis-ci.com/GabStone/giftExchange.svg?branch=master)](https://app.travis-ci.com/GabStone/giftExchange)
 
 ##
 Web application used to create a secret gift exchange. 
